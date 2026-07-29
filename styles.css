@@ -1036,12 +1036,3 @@ body{ top:0 !important; position:static !important; }
 .wl-item:hover .wl-item-icon{ transform:translateY(-5px) scale(1.06); border-color:var(--border-strong); }
 .wl-item-icon img{ width:100%; height:100%; object-fit:cover; display:block; }
 .wl-item span{ font-size:12px; font-weight:600; color:var(--text-muted); line-height:1.3; }
-@media (prefers-reduced-motion: reduce){
-  .wl-showcase.play .wlhero-icon-img, .wl-showcase.play .wlhero-icon-wrap, .wl-showcase.play .wlhero-ripple,
-  .wl-showcase.play .wlhero-shock, .wl-showcase.play .wlhero-cursor, .wl-showcase.play .wlhero-arrow{
-    animation:none !important;
-  }
-  .wl-showcase.play .wl-item{ animation:none !important; }
-  .wl-item{ opacity:1; transform:none; }
-  .wlhero-cursor, .wlhero-arrow{ opacity:0; }
-}
