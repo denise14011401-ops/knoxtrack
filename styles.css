@@ -590,6 +590,27 @@ button{ font-family:inherit; }
 .plan-list li.no svg{ color:var(--text-faint); }
 .plan-list li.no{ color: var(--text-faint); }
 
+/* Planes SIM internacionales */
+.sim-plan-grid{ grid-template-columns: repeat(4,1fr); }
+@media (max-width:900px){ .sim-plan-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:520px){ .sim-plan-grid{ grid-template-columns: 1fr; } }
+.sim-plan-card{ text-align:left; }
+.sim-plan-icon{
+  width:46px; height:46px; border-radius:50%; background:var(--signal-dim); color:var(--signal);
+  display:flex; align-items:center; justify-content:center; flex:none; margin-bottom:var(--sp-4);
+  border:1px solid rgba(250,30,78,0.28);
+}
+.sim-plan-price{ font-family:'Inter',sans-serif; font-size:1.9rem; font-weight:800; margin: 8px 0 2px; }
+.sim-plan-price span{ font-size:var(--fs-sm); color:var(--text-faint); font-weight:400; }
+.sim-plan-note{ font-size:var(--fs-sm); color:var(--text-faint); margin-top:6px; }
+.sim-band{
+  display:flex; align-items:center; justify-content:space-between; gap:var(--sp-6); flex-wrap:wrap;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+  padding:var(--sp-6); margin-top:var(--sp-7);
+}
+.sim-band h3{ font-size:var(--fs-lg); margin:0 0 4px; }
+.sim-band p{ margin:0; max-width:520px; }
+
 /* Quote form */
 .quote-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); align-items:flex-start; }
 .form-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding: var(--sp-6); }
