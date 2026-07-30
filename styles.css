@@ -265,7 +265,7 @@ button{ font-family:inherit; }
   margin-right: -8%;
 }
 .hero-visual-img{
-  display:block; width:135%; max-width:none; height:auto; margin:0 auto;
+  display:block; width:105%; max-width:none; height:auto; margin:0 auto;
 }
 @media (max-width: 1024px){
   .hero-visual{ margin-right:0; }
@@ -653,7 +653,7 @@ button{ font-family:inherit; }
 
 /* Footer */
 .footer{ border-top:1px solid var(--border); padding: var(--sp-8) 0 var(--sp-6); background: var(--bg-soft); }
-.footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--sp-7); margin-bottom: var(--sp-7); }
+.footer-grid{ display:grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 1.1fr; gap: var(--sp-7); margin-bottom: var(--sp-7); }
 .footer-col h4{ font-size:var(--fs-xs); text-transform:uppercase; letter-spacing:.06em; color:var(--text-faint); margin-bottom: var(--sp-4); }
 .footer-col ul{ display:flex; flex-direction:column; gap:12px; }
 .footer-col a{ color:var(--text-muted); font-size:var(--fs-sm); }
@@ -683,6 +683,23 @@ button{ font-family:inherit; }
   color:#04150f;
 }
 .wa-float:hover{ transform: translateY(-2px); }
+
+/* Floating audio play/pause control (sits above the chat widget) */
+.audio-fab{
+  position:fixed; bottom:94px; right:24px; z-index:70;
+  width:46px; height:46px; border-radius:50%; background:var(--bg-soft);
+  border:1px solid var(--border); box-shadow: var(--shadow-elev);
+  display:flex; align-items:center; justify-content:center; color:var(--signal);
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.audio-fab:hover{ transform:translateY(-2px); border-color:var(--border-strong); }
+.audio-fab-icon{ position:absolute; transition: opacity 160ms ease, transform 160ms ease; }
+.audio-fab-icon-paused{ opacity:0; transform:scale(.6); }
+.audio-fab.is-paused .audio-fab-icon-playing{ opacity:0; transform:scale(.6); }
+.audio-fab.is-paused .audio-fab-icon-paused{ opacity:1; transform:scale(1); }
+@media (max-width: 640px){
+  .audio-fab{ bottom:86px; right:16px; width:42px; height:42px; }
+}
 
 /* Smart chat widget (replaces WhatsApp float on homepage) */
 .chat-widget{ position:fixed; bottom:24px; right:24px; z-index:70; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
