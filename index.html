@@ -37,6 +37,7 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#070b14">
 <link rel="stylesheet" href="styles.css">
+<style>.sim-hero{--sim-card-src:url("assets/sim-card.png")}</style>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KnoxTrack">
 <meta property="og:locale" content="es_DO">
@@ -130,7 +131,45 @@
 
     <div class="reveal">
       <div class="hero-visual">
-        <img class="hero-visual-img" src="assets/hero-mockup-2.webp" alt="Panel de KnoxTrack mostrando el mapa mundial de rastreo GPS en tiempo real" width="1308" height="1173" loading="eager">
+        <div class="hero-visual-frame">
+          <video class="hero-visual-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="assets/hero-video.webm" type="video/webm">
+            <source src="assets/hero-video.mp4" type="video/mp4">
+          </video>
+          <img class="hero-visual-img" src="assets/hero-frame.webp" alt="Panel de KnoxTrack mostrando el mapa de rastreo GPS en tiempo real" width="1304" height="998" loading="eager">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIM IoT -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="card w6 reveal split-grid split-grid-sim">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> SIM IoT diseñadas para empresas de rastreo GPS.</span>
+        <h2 style="font-size:var(--fs-2xl)">Conéctate sin límites, dondequiera que estés</h2>
+        <p>Equipa tus GPS con SIM IoT de alta disponibilidad, cobertura internacional y gestión centralizada. Simplifica la administración de tus líneas y ofrece un servicio más confiable a tus clientes.</p>
+        <a href="precios.html#sim" class="btn btn-outline">Ver planes SIM</a>
+      </div>
+      <div class="sim-hero" id="simHero" aria-hidden="true">
+        <span class="sim-hero-aurora"></span>
+        <div class="sim-hero-scene">
+          <div class="sim-hero-float">
+            <div class="sim-hero-tilt" id="simTilt">
+              <span class="sim-hero-glow"></span>
+              <span class="sim-hero-img"></span>
+              <span class="sim-hero-sheen" id="simSheen"></span>
+              <span class="sim-hero-rings">
+                <span class="sim-ring r1"></span>
+                <span class="sim-ring r2"></span>
+                <span class="sim-ring r3"></span>
+              </span>
+              <span class="sim-hero-reflection"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

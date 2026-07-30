@@ -260,16 +260,23 @@ button{ font-family:inherit; }
 /* Hero visual: real product screenshot, plain and centered */
 .hero-visual{
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
-  margin-right: -8%;
+  margin-right: -3%;
+}
+.hero-visual-frame{
+  position:relative; display:block; width:112%; max-width:none; flex-shrink:0;
 }
 .hero-visual-img{
-  display:block; width:105%; max-width:none; height:auto; margin:0 auto;
+  display:block; width:100%; height:auto; position:relative; z-index:2; pointer-events:none;
+}
+.hero-visual-video{
+  position:absolute; z-index:1; left:1.3%; top:2.3%; width:97.2%; height:78.5%;
+  object-fit:cover; background:#04070d;
 }
 @media (max-width: 1024px){
   .hero-visual{ margin-right:0; }
-  .hero-visual-img{ width:100%; }
+  .hero-visual-frame{ width:100%; }
 }
 
 /* SIM card 3D hero (Emnify) — base64 image supplied per-page via --sim-card-src */
