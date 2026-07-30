@@ -530,20 +530,21 @@ button{ font-family:inherit; }
 .reveal.in .app-visual-mockup img{ opacity:1; transform:none; filter:blur(0); }
 .app-row.reverse .app-visual-mockup img{ transition-delay: .05s; }
 
-/* Mockup de celular flotando centrado bajo el mockup principal (vista móvil) */
-.app-visual-mockup.has-phone{ position:relative; padding-bottom: var(--sp-7); }
+/* Mockup de celular al lado del mockup principal, sin marco ni sombra: imagen pura */
+.app-visual-mockup.has-phone{ position:relative; padding-right: 90px; }
 .app-visual-mockup .app-visual-phone{
-  position:absolute; left:calc(50% - 75px); bottom:-6%; width:150px; max-height:none;
-  border-radius:24px; box-shadow:0 24px 50px rgba(0,0,0,.55); border:1px solid var(--border);
+  position:absolute; right:-10px; bottom:13%; width:140px; max-height:none;
+  border-radius:0; box-shadow:none; border:none; background:transparent;
   transition-delay: .4s;
 }
 .app-row.reverse .app-visual-mockup .app-visual-phone{ transition-delay: .3s; }
 @media (max-width:900px){
-  .app-visual-mockup .app-visual-phone{ width:130px; left:calc(50% - 65px); bottom:-4%; }
+  .app-visual-mockup.has-phone{ padding-right: 70px; }
+  .app-visual-mockup .app-visual-phone{ width:110px; right:-6px; bottom:13%; }
 }
 @media (max-width:640px){
-  .app-visual-mockup.has-phone{ padding-bottom: var(--sp-8); }
-  .app-visual-mockup .app-visual-phone{ width:110px; left:calc(50% - 55px); bottom:-2%; }
+  .app-visual-mockup.has-phone{ padding-right: 56px; }
+  .app-visual-mockup .app-visual-phone{ width:90px; right:0; bottom:13%; }
 }
 .app-feats{ display:flex; flex-wrap:wrap; gap:8px; margin: var(--sp-4) 0 var(--sp-5); }
 .pill{ font-size:12.5px; font-weight:600; color:var(--text-muted); background:var(--surface); border:1px solid var(--border); padding:6px 12px; border-radius:var(--radius-full); display:inline-flex; align-items:center; gap:6px; }
@@ -570,6 +571,13 @@ button{ font-family:inherit; }
 .team-social{ display:flex; justify-content:center; gap:10px; margin-top:var(--sp-3); }
 .team-social a{ width:32px; height:32px; border-radius:50%; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--text-faint); }
 .team-social a:hover{ color:var(--text); border-color:var(--border-strong); }
+.team-contact{
+  display:inline-flex; align-items:center; gap:7px; margin:var(--sp-3) auto 0; width:fit-content;
+  font-size:var(--fs-sm); font-weight:600; color:var(--text); border:1px solid var(--border);
+  border-radius:var(--radius-full); padding:8px 16px; transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.team-contact svg{ color:var(--signal); flex:none; }
+.team-contact:hover{ border-color:var(--border-strong); background:var(--bg-soft); }
 
 /* Pricing */
 .plan-toggle{ display:inline-flex; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-full); padding:4px; margin-bottom:var(--sp-7); }
@@ -595,6 +603,7 @@ button{ font-family:inherit; }
 @media (max-width:900px){ .sim-plan-grid{ grid-template-columns: repeat(2,1fr); } }
 @media (max-width:520px){ .sim-plan-grid{ grid-template-columns: 1fr; } }
 .sim-plan-card{ text-align:left; }
+.sim-plan-card .plan-name{ display:block; margin-top:10px; }
 .sim-plan-icon{
   width:46px; height:46px; border-radius:50%; background:var(--signal-dim); color:var(--signal);
   display:flex; align-items:center; justify-content:center; flex:none; margin-bottom:var(--sp-4);
@@ -1065,6 +1074,7 @@ body{ top:0 !important; position:static !important; }
 .wl-item:nth-child(5){ animation-delay:.24s; } .wl-item:nth-child(6){ animation-delay:.30s; }
 .wl-item:nth-child(7){ animation-delay:.36s; } .wl-item:nth-child(8){ animation-delay:.42s; }
 .wl-item:nth-child(9){ animation-delay:.48s; } .wl-item:nth-child(10){ animation-delay:.54s; }
+.wl-item:nth-child(11){ animation-delay:.60s; } .wl-item:nth-child(12){ animation-delay:.66s; }
 @keyframes wl-item-burst{
   0%,18%{ opacity:0; transform:translateY(20px) scale(.7); }
   30%,92%{ opacity:1; transform:translateY(0) scale(1); }

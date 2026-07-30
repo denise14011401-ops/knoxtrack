@@ -26,8 +26,8 @@
   }catch(e){}
 })();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Precios — Planes Empresariales y Personales | KnoxTrack</title>
-<meta name="description" content="Cotiza tu plan KnoxTrack: empresarial para negocios de GPS y revendedores, o personal para flotas y particulares según tu cantidad de vehículos.">
+<title>Precios — KnoxTrack</title>
+<meta name="description" content="Conoce los planes de SIM internacionales para GPS de KnoxTrack y cotiza tu plan por WhatsApp.">
 <link rel="icon" type="image/webp" href="assets/knoxtrack-icon.webp">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -81,135 +81,7 @@
   <div class="container">
     <span class="eyebrow"><span class="dot"></span> Precios</span>
     <h1>Un plan hecho a la medida de tu operación</h1>
-    <p>No usamos precios genéricos: cotizamos según el tamaño de tu flota o el tipo de negocio que quieres construir. Elige tu perfil y cuéntanos qué necesitas.</p>
-    <div class="plan-toggle" role="tablist">
-      <button data-plan-toggle="empresarial" class="active" role="tab">Empresariales</button>
-      <button data-plan-toggle="personal" role="tab">Personales</button>
-    </div>
-  </div>
-</section>
-
-<!-- EMPRESARIAL -->
-<section class="section" style="padding-top:0" id="empresarial-panel">
-  <div class="container">
-    <div id="empresarial" class="plan-panel active">
-      <div class="section-head center reveal">
-        <span class="eyebrow"><span class="dot"></span> Empresariales</span>
-        <h2>Para empresas de GPS, técnicos y nuevos emprendedores</h2>
-      </div>
-
-      <div class="plan-grid reveal" style="grid-template-columns:repeat(2,1fr); max-width:760px; margin:0 auto;">
-        <div class="plan-card">
-          <span class="plan-name">Software mensual</span>
-          <div class="plan-price">A cotizar<span>/mes</span></div>
-          <p style="font-size:var(--fs-sm)">Alojado en nuestra nube, ideal para empezar rápido sin infraestructura propia.</p>
-          <ul class="plan-list">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Plataforma alojada en nuestra nube</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Niveles de usuario (admin / gerente / usuario)</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Pasarela de pagos integrada</li>
-          </ul>
-          <a href="#form-empresarial" class="btn btn-outline btn-block">Cotizar este plan</a>
-        </div>
-
-        <div class="plan-card">
-          <span class="plan-name">Técnico / Revendedor</span>
-          <div class="plan-price">A cotizar</div>
-          <p style="font-size:var(--fs-sm)">Para instaladores y técnicos independientes que quieren revender la plataforma a sus propios clientes.</p>
-          <ul class="plan-list">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Marca blanca disponible</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Compatibilidad con 900+ rastreadores</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Configuración y capacitación sin costo</li>
-          </ul>
-          <a href="#form-empresarial" class="btn btn-outline btn-block">Cotizar este plan</a>
-        </div>
-      </div>
-
-      <div class="quote-wrap reveal" style="margin-top:64px" >
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Cotización empresarial</span>
-          <h2 style="font-size:var(--fs-2xl)">Cuéntanos sobre tu negocio</h2>
-          <p>Responderemos tu consulta en la mayor brevedad posible. Configuración de servidor en 1 día hábil y soporte 24/7 sin costo para clientes empresariales.</p>
-          <ul class="plan-list" style="max-width:380px">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Sin habilidades técnicas requeridas</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Operativo en más de 30 idiomas</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Compatible con 900+ marcas de GPS</li>
-          </ul>
-        </div>
-        <div class="form-card" id="form-empresarial">
-          <form data-demo-form>
-            <div class="field">
-              <label>¿A qué se dedica su empresa?</label>
-              <div class="radio-group">
-                <label class="radio-chip"><input type="radio" name="perfil" value="rastreo" checked><span>Tengo empresa de rastreo GPS</span></label>
-                <label class="radio-chip"><input type="radio" name="perfil" value="tecnico"><span>Técnico independiente</span></label>
-                <label class="radio-chip"><input type="radio" name="perfil" value="nuevo"><span>Quiero empezar el negocio</span></label>
-              </div>
-            </div>
-            <div class="field"><label>Nombre completo</label><input type="text" required placeholder="Tu nombre"></div>
-            <div class="field"><label>Empresa</label><input type="text" placeholder="Nombre de tu empresa (opcional)"></div>
-            <div class="field"><label>Teléfono / WhatsApp</label><input type="tel" required placeholder="(849) 000-0000"></div>
-            <div class="field"><label>Correo electrónico</label><input type="email" required placeholder="tucorreo@empresa.com"></div>
-            <div class="field"><label>Mensaje</label><textarea placeholder="Cuéntanos más sobre lo que necesitas"></textarea></div>
-            <button type="submit" class="btn btn-primary btn-block">Enviar cotización</button>
-            <p class="form-note" style="margin-top:14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg> Te responderemos por WhatsApp o correo en menos de 24 horas.</p>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- PERSONAL -->
-    <div id="personal" class="plan-panel">
-      <div class="section-head center reveal">
-        <span class="eyebrow"><span class="dot"></span> Personales</span>
-        <h2>Para flotas y particulares</h2>
-      </div>
-
-      <div class="quote-wrap reveal">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Cotización personal</span>
-          <h2 style="font-size:var(--fs-2xl)">Cotiza según tu flota</h2>
-          <p>Utilice el formulario para cotizar con nosotros. Responderemos su consulta en la mayor brevedad posible.</p>
-          <ul class="plan-list" style="max-width:380px">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Rastreo en tiempo real de todos tus vehículos</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Alertas vía WhatsApp para cada evento</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Reportes en PDF e historial de recorrido</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Instalación disponible si la necesitas</li>
-          </ul>
-        </div>
-        <div class="form-card">
-          <form data-demo-form>
-            <div class="field">
-              <label>Cantidad de vehículos</label>
-              <div class="radio-group">
-                <label class="radio-chip"><input type="radio" name="cantidad" value="1-5" checked><span>1 – 5</span></label>
-                <label class="radio-chip"><input type="radio" name="cantidad" value="10-20"><span>10 – 20</span></label>
-                <label class="radio-chip"><input type="radio" name="cantidad" value="30-50"><span>30 – 50</span></label>
-                <label class="radio-chip"><input type="radio" name="cantidad" value="80+"><span>80 +</span></label>
-              </div>
-            </div>
-            <div class="field">
-              <label>¿Ya tiene los GPS instalados?</label>
-              <div class="radio-group">
-                <label class="radio-chip"><input type="radio" name="instalados" value="si" checked><span>Sí</span></label>
-                <label class="radio-chip"><input type="radio" name="instalados" value="no"><span>No</span></label>
-              </div>
-            </div>
-            <div class="field">
-              <label>¿Desea realizar instalación?</label>
-              <div class="radio-group">
-                <label class="radio-chip"><input type="radio" name="instalacion" value="si" checked><span>Sí</span></label>
-                <label class="radio-chip"><input type="radio" name="instalacion" value="no"><span>No</span></label>
-              </div>
-            </div>
-            <div class="field"><label>Nombre completo</label><input type="text" required placeholder="Tu nombre"></div>
-            <div class="field"><label>Teléfono / WhatsApp</label><input type="tel" required placeholder="(849) 000-0000"></div>
-            <div class="field"><label>Correo electrónico</label><input type="email" required placeholder="tucorreo@email.com"></div>
-            <button type="submit" class="btn btn-primary btn-block">Enviar cotización</button>
-            <p class="form-note" style="margin-top:14px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg> Te responderemos por WhatsApp o correo en menos de 24 horas.</p>
-          </form>
-        </div>
-      </div>
-    </div>
+    <p>Conoce nuestras SIM internacionales para GPS y escríbenos por WhatsApp para cotizar el plan que mejor se adapte a tu negocio.</p>
   </div>
 </section>
 
@@ -223,27 +95,23 @@
     </div>
     <div class="plan-grid sim-plan-grid">
       <div class="plan-card sim-plan-card">
-        <span class="sim-plan-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="4" height="6" rx="1" fill="currentColor"/><rect x="8" y="12" width="4" height="10" rx="1" fill="currentColor" opacity=".25"/><rect x="14" y="8" width="4" height="14" rx="1" fill="currentColor" opacity=".25"/><rect x="20" y="4" width="2" height="18" rx="1" fill="currentColor" opacity=".25"/></svg></span>
+        <span class="sim-plan-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="4" height="6" rx="1" fill="currentColor"/><rect x="8" y="12" width="4" height="10" rx="1" fill="currentColor"/><rect x="14" y="8" width="4" height="14" rx="1" fill="currentColor"/><rect x="20" y="4" width="2" height="18" rx="1" fill="currentColor"/></svg></span>
         <span class="plan-name">10 MB</span>
-        <div class="sim-plan-price">US$16<span>/año</span></div>
         <p class="sim-plan-note">Ideal para usuarios de uso personal.</p>
       </div>
       <div class="plan-card sim-plan-card">
-        <span class="sim-plan-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="4" height="6" rx="1" fill="currentColor"/><rect x="8" y="12" width="4" height="10" rx="1" fill="currentColor"/><rect x="14" y="8" width="4" height="14" rx="1" fill="currentColor" opacity=".25"/><rect x="20" y="4" width="2" height="18" rx="1" fill="currentColor" opacity=".25"/></svg></span>
+        <span class="sim-plan-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="4" height="6" rx="1" fill="currentColor"/><rect x="8" y="12" width="4" height="10" rx="1" fill="currentColor"/><rect x="14" y="8" width="4" height="14" rx="1" fill="currentColor"/><rect x="20" y="4" width="2" height="18" rx="1" fill="currentColor"/></svg></span>
         <span class="plan-name">15 MB</span>
-        <div class="sim-plan-price">US$17.5<span>/año</span></div>
         <p class="sim-plan-note">Ideal para uso personal y salidas cotidianas.</p>
       </div>
       <div class="plan-card sim-plan-card">
-        <span class="sim-plan-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="4" height="6" rx="1" fill="currentColor"/><rect x="8" y="12" width="4" height="10" rx="1" fill="currentColor"/><rect x="14" y="8" width="4" height="14" rx="1" fill="currentColor"/><rect x="20" y="4" width="2" height="18" rx="1" fill="currentColor" opacity=".25"/></svg></span>
+        <span class="sim-plan-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="4" height="6" rx="1" fill="currentColor"/><rect x="8" y="12" width="4" height="10" rx="1" fill="currentColor"/><rect x="14" y="8" width="4" height="14" rx="1" fill="currentColor"/><rect x="20" y="4" width="2" height="18" rx="1" fill="currentColor"/></svg></span>
         <span class="plan-name">30 MB</span>
-        <div class="sim-plan-price">US$18.5<span>/año</span></div>
         <p class="sim-plan-note">Ideal para usuarios de Uber y transporte.</p>
       </div>
       <div class="plan-card sim-plan-card highlight">
         <span class="sim-plan-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="16" width="4" height="6" rx="1" fill="currentColor"/><rect x="8" y="12" width="4" height="10" rx="1" fill="currentColor"/><rect x="14" y="8" width="4" height="14" rx="1" fill="currentColor"/><rect x="20" y="4" width="2" height="18" rx="1" fill="currentColor"/></svg></span>
         <span class="plan-name">Ilimitado</span>
-        <div class="sim-plan-price">US$23<span>/año</span></div>
         <p class="sim-plan-note">Ideal para usuarios de uso empresarial.</p>
       </div>
     </div>
@@ -286,15 +154,6 @@
 </a>
 
 <script src="main.js"></script>
-<script>
-  // Deep-link support: /precios.html#personal opens the right tab
-  (function(){
-    const hash = window.location.hash.replace('#','');
-    if (hash === 'personal') {
-      document.querySelector('[data-plan-toggle="personal"]').click();
-    }
-  })();
-</script>
 <div id="google_translate_element"></div>
 <script type="text/javascript">
   function googleTranslateElementInit(){
