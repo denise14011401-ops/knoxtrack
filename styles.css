@@ -705,7 +705,7 @@ button{ font-family:inherit; }
 .audio-fab.is-paused .audio-fab-icon-playing{ opacity:0; transform:scale(.6); }
 .audio-fab.is-paused .audio-fab-icon-paused{ opacity:1; transform:scale(1); }
 @media (max-width: 640px){
-  .audio-fab{ bottom:16px; left:16px; width:42px; height:42px; }
+  .audio-fab{ bottom:calc(16px + env(safe-area-inset-bottom)); left:16px; width:42px; height:42px; }
 }
 
 /* Smart chat widget (replaces WhatsApp float on homepage) */

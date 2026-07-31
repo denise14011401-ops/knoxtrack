@@ -144,13 +144,31 @@ function initAudioFab(){
   // user explicitly presses the button.
   setPlayingUI(false);
 
-  btn.addEventListener('click', () => {
+  function toggleAudio(){
     if (audio.paused) {
       audio.play().then(() => setPlayingUI(true)).catch(() => {});
     } else {
       audio.pause();
       setPlayingUI(false);
     }
+  }
+
+  // Some mobile browsers (iOS Safari, in-app webviews) are inconsistent
+  // firing a synthetic "click" from a tap, or add enough delay that it no
+  // longer counts as a direct user gesture for audio playback. Binding
+  // touchend directly — and preventing the following synthetic click —
+  // makes the very first tap reliably start playback on phones too.
+  let handledByTouch = false;
+  btn.addEventListener('touchend', (e) => {
+    handledByTouch = true;
+    e.preventDefault();
+    toggleAudio();
+    setTimeout(() => { handledByTouch = false; }, 400);
+  }, { passive: false });
+
+  btn.addEventListener('click', () => {
+    if (handledByTouch) return;
+    toggleAudio();
   });
 
   audio.addEventListener('play', () => setPlayingUI(true));
