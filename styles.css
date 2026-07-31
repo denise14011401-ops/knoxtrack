@@ -709,7 +709,8 @@ button{ font-family:inherit; }
 }
 
 /* Smart chat widget (replaces WhatsApp float on homepage) */
-.chat-widget{ position:fixed; bottom:24px; right:24px; z-index:70; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+.chat-widget{ position:fixed; bottom:24px; right:24px; z-index:70; display:flex; flex-direction:column; align-items:flex-end; gap:12px; pointer-events:none; }
+.chat-widget > *{ pointer-events:auto; }
 
 .chat-notify{
   max-width:240px; background:var(--bg-soft); border:1px solid var(--border); border-radius:16px 16px 4px 16px;
