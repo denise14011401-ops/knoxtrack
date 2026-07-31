@@ -753,7 +753,7 @@ button{ font-family:inherit; }
 .chat-panel-close:hover{ background:var(--surface); color:var(--text); }
 @keyframes dot-live{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
 
-.chat-messages{ flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:var(--bg); }
+.chat-messages{ flex:1; min-height:0; overflow-y:auto; overflow-anchor:none; padding:16px; display:flex; flex-direction:column; gap:10px; background:var(--bg); }
 .chat-msg{ max-width:82%; padding:10px 13px; border-radius:14px; font-size:0.87rem; line-height:1.5; animation: chatMsgIn 220ms ease; }
 @keyframes chatMsgIn{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:translateY(0); } }
 .chat-msg--bot{ align-self:flex-start; background:var(--surface); border:1px solid var(--border); border-bottom-left-radius:4px; color:var(--text); }
@@ -877,6 +877,7 @@ button{ font-family:inherit; }
   .team-grid{ grid-template-columns:1fr; }
   .hero-stats{ gap: var(--sp-5); }
   .cta-band{ flex-direction:column; text-align:center; }
+  .cta-band .btn{ width:100%; white-space:normal; }
   .footer-grid{ grid-template-columns:1fr 1fr; }
   .split-grid{ grid-template-columns:1fr; gap:28px; }
   .split-grid-sim{ text-align:left; }

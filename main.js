@@ -90,6 +90,42 @@ const CHAT_TOPICS = [
     a: 'Tenemos oficinas en Santiago, República Dominicana y en Philadelphia, PA, EE. UU. Puedes escribirnos por teléfono, correo o WhatsApp.',
     ctaLabel: 'Ir a contacto',
     ctaHref: 'contacto.html'
+  },
+  {
+    id: 'prueba-30-dias',
+    q: '¿Puedo probar la plataforma antes de pagar?',
+    a: 'Sí. Creamos tu cuenta Master gratis y puedes probarla durante 30 días.',
+    ctaLabel: 'Solicitar prueba gratis',
+    ctaHref: 'contacto.html'
+  },
+  {
+    id: 'compra-gps',
+    q: '¿Debo comprar los GPS directamente a KnoxTrack?',
+    a: 'No. Puedes conectar equipos compatibles que ya tengas o adquirir dispositivos y SIM directamente con nosotros.'
+  },
+  {
+    id: 'clientes-internacionales',
+    q: '¿Trabajan con clientes fuera de República Dominicana?',
+    a: 'Sí. La plataforma puede utilizarse internacionalmente y realizamos envíos de SIM y equipos a diferentes países.'
+  },
+  {
+    id: 'app-propia',
+    q: '¿Puedo tener mi propia aplicación?',
+    a: 'Sí. Puedes solicitar una solución de marca blanca con el nombre, logo, colores y dominio de tu empresa.',
+    ctaLabel: 'Ver marca blanca',
+    ctaHref: 'marcablanca.html'
+  },
+  {
+    id: 'cuanto-cuesta',
+    q: '¿Cuánto cuesta?',
+    a: 'El precio depende de la cantidad de unidades, productos y soluciones que necesite tu negocio.',
+    ctaLabel: 'Ver precios y planes',
+    ctaHref: 'precios.html'
+  },
+  {
+    id: 'fin-prueba',
+    q: '¿Qué sucede después del mes de prueba?',
+    a: 'Eliges las unidades que deseas mantener activas y pagas solamente por ellas.'
   }
 ];
 
@@ -135,7 +171,9 @@ function initChatWidget(){
 
   let answeredTopics = [];
 
-  function scrollToBottom(){ messagesEl.scrollTop = messagesEl.scrollHeight; }
+  function scrollToBottom(){
+    requestAnimationFrame(() => { messagesEl.scrollTop = messagesEl.scrollHeight; });
+  }
 
   function addMessage(text, sender){
     const el = document.createElement('div');
