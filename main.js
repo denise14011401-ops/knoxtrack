@@ -104,28 +104,9 @@ function initAudioFab(){
     btn.setAttribute('aria-label', isPlaying ? 'Pausar audio' : 'Reproducir audio');
   }
 
-  // Try to autoplay as soon as the page loads. Browsers often block
-  // audio-with-sound autoplay until the user has interacted with the page,
-  // so if it gets blocked we fall back to starting playback on the first
-  // click/tap/keydown anywhere on the page, and keep the button in sync.
-  function tryAutoplay(){
-    const playPromise = audio.play();
-    if (playPromise && typeof playPromise.then === 'function') {
-      playPromise.then(() => setPlayingUI(true)).catch(() => {
-        setPlayingUI(false);
-        const resumeOnInteract = () => {
-          audio.play().then(() => setPlayingUI(true)).catch(() => {});
-          document.removeEventListener('click', resumeOnInteract);
-          document.removeEventListener('keydown', resumeOnInteract);
-          document.removeEventListener('touchstart', resumeOnInteract);
-        };
-        document.addEventListener('click', resumeOnInteract, { once: true });
-        document.addEventListener('keydown', resumeOnInteract, { once: true });
-        document.addEventListener('touchstart', resumeOnInteract, { once: true });
-      });
-    }
-  }
-  tryAutoplay();
+  // No autoplay: the audio starts paused and only plays when the
+  // user explicitly presses the button.
+  setPlayingUI(false);
 
   btn.addEventListener('click', () => {
     if (audio.paused) {

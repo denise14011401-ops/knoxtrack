@@ -691,9 +691,9 @@ button{ font-family:inherit; }
 }
 .wa-float:hover{ transform: translateY(-2px); }
 
-/* Floating audio play/pause control (sits above the chat widget) */
+/* Floating audio play/pause control (left side, independent of the chat widget) */
 .audio-fab{
-  position:fixed; bottom:94px; right:24px; z-index:70;
+  position:fixed; bottom:24px; left:24px; z-index:70;
   width:46px; height:46px; border-radius:50%; background:var(--bg-soft);
   border:1px solid var(--border); box-shadow: var(--shadow-elev);
   display:flex; align-items:center; justify-content:center; color:var(--signal);
@@ -705,7 +705,7 @@ button{ font-family:inherit; }
 .audio-fab.is-paused .audio-fab-icon-playing{ opacity:0; transform:scale(.6); }
 .audio-fab.is-paused .audio-fab-icon-paused{ opacity:1; transform:scale(1); }
 @media (max-width: 640px){
-  .audio-fab{ bottom:86px; right:16px; width:42px; height:42px; }
+  .audio-fab{ bottom:16px; left:16px; width:42px; height:42px; }
 }
 
 /* Smart chat widget (replaces WhatsApp float on homepage) */
