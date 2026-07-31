@@ -144,31 +144,37 @@ function initAudioFab(){
   // user explicitly presses the button.
   setPlayingUI(false);
 
-  function toggleAudio(){
+  let waitingForData = false;
+
+  function attemptPlay(){
+    const playPromise = audio.play();
+    if (!playPromise || !playPromise.catch) return;
+    playPromise.then(() => setPlayingUI(true)).catch(() => {
+      // On a slow mobile connection the 1.7MB file may not have buffered
+      // enough yet, so the very first tap can fail silently. Instead of
+      // giving up, wait for the audio to actually have enough data and
+      // try again automatically — no second tap (or page navigation)
+      // needed. The user gesture from the original tap stays valid for
+      // this short follow-up attempt.
+      if (waitingForData) return;
+      waitingForData = true;
+      audio.addEventListener('canplay', function onCanPlay(){
+        audio.removeEventListener('canplay', onCanPlay);
+        waitingForData = false;
+        if (!audio.paused) return; // user may have tapped pause meanwhile
+        audio.play().then(() => setPlayingUI(true)).catch(() => {});
+      }, { once: true });
+    });
+  }
+
+  btn.addEventListener('click', () => {
     if (audio.paused) {
-      audio.play().then(() => setPlayingUI(true)).catch(() => {});
+      attemptPlay();
     } else {
       audio.pause();
       setPlayingUI(false);
+      waitingForData = false;
     }
-  }
-
-  // Some mobile browsers (iOS Safari, in-app webviews) are inconsistent
-  // firing a synthetic "click" from a tap, or add enough delay that it no
-  // longer counts as a direct user gesture for audio playback. Binding
-  // touchend directly — and preventing the following synthetic click —
-  // makes the very first tap reliably start playback on phones too.
-  let handledByTouch = false;
-  btn.addEventListener('touchend', (e) => {
-    handledByTouch = true;
-    e.preventDefault();
-    toggleAudio();
-    setTimeout(() => { handledByTouch = false; }, 400);
-  }, { passive: false });
-
-  btn.addEventListener('click', () => {
-    if (handledByTouch) return;
-    toggleAudio();
   });
 
   audio.addEventListener('play', () => setPlayingUI(true));
