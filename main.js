@@ -90,42 +90,6 @@ const CHAT_TOPICS = [
     a: 'Tenemos oficinas en Santiago, República Dominicana y en Philadelphia, PA, EE. UU. Puedes escribirnos por teléfono, correo o WhatsApp.',
     ctaLabel: 'Ir a contacto',
     ctaHref: 'contacto.html'
-  },
-  {
-    id: 'prueba-30-dias',
-    q: '¿Puedo probar la plataforma antes de pagar?',
-    a: 'Sí. Creamos tu cuenta Master gratis y puedes probarla durante 30 días.',
-    ctaLabel: 'Solicitar prueba gratis',
-    ctaHref: 'contacto.html'
-  },
-  {
-    id: 'compra-gps',
-    q: '¿Debo comprar los GPS directamente a KnoxTrack?',
-    a: 'No. Puedes conectar equipos compatibles que ya tengas o adquirir dispositivos y SIM directamente con nosotros.'
-  },
-  {
-    id: 'clientes-internacionales',
-    q: '¿Trabajan con clientes fuera de República Dominicana?',
-    a: 'Sí. La plataforma puede utilizarse internacionalmente y realizamos envíos de SIM y equipos a diferentes países.'
-  },
-  {
-    id: 'app-propia',
-    q: '¿Puedo tener mi propia aplicación?',
-    a: 'Sí. Puedes solicitar una solución de marca blanca con el nombre, logo, colores y dominio de tu empresa.',
-    ctaLabel: 'Ver marca blanca',
-    ctaHref: 'marcablanca.html'
-  },
-  {
-    id: 'cuanto-cuesta',
-    q: '¿Cuánto cuesta?',
-    a: 'El precio depende de la cantidad de unidades, productos y soluciones que necesite tu negocio.',
-    ctaLabel: 'Ver precios y planes',
-    ctaHref: 'precios.html'
-  },
-  {
-    id: 'fin-prueba',
-    q: '¿Qué sucede después del mes de prueba?',
-    a: 'Eliges las unidades que deseas mantener activas y pagas solamente por ellas.'
   }
 ];
 
@@ -140,40 +104,35 @@ function initAudioFab(){
     btn.setAttribute('aria-label', isPlaying ? 'Pausar audio' : 'Reproducir audio');
   }
 
-  // No autoplay: the audio starts paused and only plays when the
-  // user explicitly presses the button.
-  setPlayingUI(false);
-
-  let waitingForData = false;
-
-  function attemptPlay(){
+  // Try to autoplay as soon as the page loads. Browsers often block
+  // audio-with-sound autoplay until the user has interacted with the page,
+  // so if it gets blocked we fall back to starting playback on the first
+  // click/tap/keydown anywhere on the page, and keep the button in sync.
+  function tryAutoplay(){
     const playPromise = audio.play();
-    if (!playPromise || !playPromise.catch) return;
-    playPromise.then(() => setPlayingUI(true)).catch(() => {
-      // On a slow mobile connection the 1.7MB file may not have buffered
-      // enough yet, so the very first tap can fail silently. Instead of
-      // giving up, wait for the audio to actually have enough data and
-      // try again automatically — no second tap (or page navigation)
-      // needed. The user gesture from the original tap stays valid for
-      // this short follow-up attempt.
-      if (waitingForData) return;
-      waitingForData = true;
-      audio.addEventListener('canplay', function onCanPlay(){
-        audio.removeEventListener('canplay', onCanPlay);
-        waitingForData = false;
-        if (!audio.paused) return; // user may have tapped pause meanwhile
-        audio.play().then(() => setPlayingUI(true)).catch(() => {});
-      }, { once: true });
-    });
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise.then(() => setPlayingUI(true)).catch(() => {
+        setPlayingUI(false);
+        const resumeOnInteract = () => {
+          audio.play().then(() => setPlayingUI(true)).catch(() => {});
+          document.removeEventListener('click', resumeOnInteract);
+          document.removeEventListener('keydown', resumeOnInteract);
+          document.removeEventListener('touchstart', resumeOnInteract);
+        };
+        document.addEventListener('click', resumeOnInteract, { once: true });
+        document.addEventListener('keydown', resumeOnInteract, { once: true });
+        document.addEventListener('touchstart', resumeOnInteract, { once: true });
+      });
+    }
   }
+  tryAutoplay();
 
   btn.addEventListener('click', () => {
     if (audio.paused) {
-      attemptPlay();
+      audio.play().then(() => setPlayingUI(true)).catch(() => {});
     } else {
       audio.pause();
       setPlayingUI(false);
-      waitingForData = false;
     }
   });
 
@@ -195,9 +154,7 @@ function initChatWidget(){
 
   let answeredTopics = [];
 
-  function scrollToBottom(){
-    requestAnimationFrame(() => { messagesEl.scrollTop = messagesEl.scrollHeight; });
-  }
+  function scrollToBottom(){ messagesEl.scrollTop = messagesEl.scrollHeight; }
 
   function addMessage(text, sender){
     const el = document.createElement('div');
