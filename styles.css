@@ -691,9 +691,9 @@ button{ font-family:inherit; }
 }
 .wa-float:hover{ transform: translateY(-2px); }
 
-/* Floating audio play/pause control (sits above the chat widget) */
+/* Floating audio play/pause control (left side, independent of the chat widget) */
 .audio-fab{
-  position:fixed; bottom:94px; right:24px; z-index:70;
+  position:fixed; bottom:24px; left:24px; z-index:70;
   width:46px; height:46px; border-radius:50%; background:var(--bg-soft);
   border:1px solid var(--border); box-shadow: var(--shadow-elev);
   display:flex; align-items:center; justify-content:center; color:var(--signal);
@@ -705,11 +705,12 @@ button{ font-family:inherit; }
 .audio-fab.is-paused .audio-fab-icon-playing{ opacity:0; transform:scale(.6); }
 .audio-fab.is-paused .audio-fab-icon-paused{ opacity:1; transform:scale(1); }
 @media (max-width: 640px){
-  .audio-fab{ bottom:86px; right:16px; width:42px; height:42px; }
+  .audio-fab{ bottom:calc(16px + env(safe-area-inset-bottom)); left:16px; width:42px; height:42px; }
 }
 
 /* Smart chat widget (replaces WhatsApp float on homepage) */
-.chat-widget{ position:fixed; bottom:24px; right:24px; z-index:70; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+.chat-widget{ position:fixed; bottom:24px; right:24px; z-index:70; display:flex; flex-direction:column; align-items:flex-end; gap:12px; pointer-events:none; }
+.chat-widget > *{ pointer-events:auto; }
 
 .chat-notify{
   max-width:240px; background:var(--bg-soft); border:1px solid var(--border); border-radius:16px 16px 4px 16px;
@@ -753,7 +754,7 @@ button{ font-family:inherit; }
 .chat-panel-close:hover{ background:var(--surface); color:var(--text); }
 @keyframes dot-live{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
 
-.chat-messages{ flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:var(--bg); }
+.chat-messages{ flex:1; min-height:0; overflow-y:auto; overflow-anchor:none; padding:16px; display:flex; flex-direction:column; gap:10px; background:var(--bg); }
 .chat-msg{ max-width:82%; padding:10px 13px; border-radius:14px; font-size:0.87rem; line-height:1.5; animation: chatMsgIn 220ms ease; }
 @keyframes chatMsgIn{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:translateY(0); } }
 .chat-msg--bot{ align-self:flex-start; background:var(--surface); border:1px solid var(--border); border-bottom-left-radius:4px; color:var(--text); }
@@ -877,6 +878,7 @@ button{ font-family:inherit; }
   .team-grid{ grid-template-columns:1fr; }
   .hero-stats{ gap: var(--sp-5); }
   .cta-band{ flex-direction:column; text-align:center; }
+  .cta-band .btn{ width:100%; white-space:normal; }
   .footer-grid{ grid-template-columns:1fr 1fr; }
   .split-grid{ grid-template-columns:1fr; gap:28px; }
   .split-grid-sim{ text-align:left; }
