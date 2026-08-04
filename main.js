@@ -395,33 +395,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Login — abre KnoxGPS en una ventana emergente (popup) en vez de un iframe.
-  // Un iframe embebido pierde la cookie de sesión (los navegadores bloquean
-  // cookies de terceros en iframes cross-domain), lo que hacía que el login
-  // mostrara "la página ha caducado por inactividad". Un popup es una
-  // navegación de nivel superior, así que la cookie de sesión de knoxgps.com
-  // funciona con normalidad.
-  const LOGIN_URL = 'https://knoxgps.com/authentication/create';
-  document.querySelectorAll('.login-trigger').forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const w = 480, h = 680;
-      const left = (window.screen.width - w) / 2;
-      const top = (window.screen.height - h) / 2;
-      const popup = window.open(
-        LOGIN_URL,
-        'knoxLogin',
-        `width=${w},height=${h},left=${left},top=${top},noopener=no,resizable=yes,scrollbars=yes`
-      );
-      if (!popup) {
-        // Bloqueado por el navegador (popup blocker) → fallback a pestaña nueva
-        window.open(LOGIN_URL, '_blank', 'noopener');
-      } else {
-        popup.focus();
-      }
-    });
-  });
-
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length) {

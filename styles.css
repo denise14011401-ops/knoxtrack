@@ -268,11 +268,11 @@ button{ font-family:inherit; }
   position:relative; display:block; width:112%; max-width:none; flex-shrink:0;
 }
 .hero-visual-img{
-  display:block; width:100%; height:auto; position:relative; z-index:2; pointer-events:none;
+  display:block; width:100%; height:auto; position:relative; z-index:1; pointer-events:none;
 }
 .hero-visual-video{
-  position:absolute; z-index:1; left:1.3%; top:2.3%; width:97.2%; height:78.5%;
-  object-fit:cover; background:#04070d;
+  position:absolute; z-index:2; left:1.3%; top:2.31%; width:96.94%; height:78.87%;
+  object-fit:cover; background:#04070d; pointer-events:none;
 }
 @media (max-width: 1024px){
   .hero-visual{ margin-right:0; }
